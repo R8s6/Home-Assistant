@@ -1,5 +1,5 @@
 blueprint:
-  name: Presence-Activated Light
+  name: Presence-activated Light
   description: Turn on a light when presence is detected.
   homeassistant:
     min_version: 2023.8.0
@@ -25,17 +25,6 @@ blueprint:
           entity:
           - domain:
             - light
-    on_transition:
-      name: On Transition time
-      description: Time in seconds of transition turning on
-      default: 0
-      selector:
-        number:
-          min: 0.0
-          max: 60.0
-          unit_of_measurement: seconds
-          mode: slider
-          step: 1.0
     bright_percentage:
       name: Bright Percentage
       description: Brightness level that the light will turn into once is turned on
@@ -59,7 +48,7 @@ blueprint:
           mode: slider
           step: 1.0
     off_transition:
-      name: Off Transition time
+      name: Transition time
       description: Time in seconds of transition turning off
       default: 0
       selector:
@@ -115,7 +104,6 @@ action:
   service: light.turn_on
   target: !input light_target
   data:
-    transition: !input on_transition
     brightness_pct: !input bright_percentage
 - alias: Wait until there is no motion from device
   wait_for_trigger:
