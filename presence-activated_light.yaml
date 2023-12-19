@@ -1,5 +1,5 @@
 blueprint:
-  name: Presence-activated Light
+  name: Presence-Activated Light
   description: Turn on a light when presence is detected.
   homeassistant:
     min_version: 2023.8.0
